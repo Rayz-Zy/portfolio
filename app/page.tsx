@@ -1,5 +1,6 @@
 import Sidebar from "./components/Sidebar";
 import Hero from "./components/Hero";
+import Projects from "./components/Projects";
 import PlaceholderSection from "./components/PlaceholderSection";
 
 export default function Home() {
@@ -9,7 +10,7 @@ export default function Home() {
       <main>
         <Hero />
         <PlaceholderSection id="about" title="About" />
-        <PlaceholderSection id="projects" title="Projects" />
+        <Projects />
         <PlaceholderSection id="skills" title="Skills" />
         <PlaceholderSection id="contact" title="Contact" />
       </main>

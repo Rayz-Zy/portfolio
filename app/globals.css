@@ -42,3 +42,33 @@ body {
     scroll-behavior: auto;
   }
 }
+
+/* ---- Glitch discret du titre de la page détail (pur CSS) ---- */
+@keyframes hud-glitch {
+  0%,
+  92%,
+  100% {
+    clip-path: inset(0 0 0 0);
+    transform: translate(0, 0);
+  }
+  93% {
+    clip-path: inset(20% 0 40% 0);
+    transform: translate(-2px, 0);
+  }
+  95% {
+    clip-path: inset(60% 0 10% 0);
+    transform: translate(2px, 0);
+  }
+  97% {
+    clip-path: inset(30% 0 50% 0);
+    transform: translate(-1px, 0);
+  }
+}
+.hud-glitch {
+  animation: hud-glitch 4.5s infinite steps(1);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hud-glitch {
+    animation: none;
+  }
+}

@@ -9,6 +9,7 @@
   --panel: #16233f; /* bandeau navy sous le titre */
   --accent: #22aee6; /* cyan du bouton / pill */
   --accent-soft: #8fd6f4; /* haut du dégradé de la pill active */
+  --accent-hot: #ff3d5a; /* rouge/rose de l'item de nav actif (façon SKILL) */
   --title-shadow: #14294d; /* ombre décalée du grand titre */
 }
 
@@ -21,6 +22,7 @@
   --color-panel: var(--panel);
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
+  --color-accent-hot: var(--accent-hot);
 
   --font-sans: var(--font-geist);
   --font-mono: var(--font-jetbrains-mono);

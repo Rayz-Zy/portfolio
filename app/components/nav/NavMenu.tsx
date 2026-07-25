@@ -69,20 +69,25 @@ export default function NavMenu() {
 
   return (
     <>
-      {/* Onglet MENU vertical fixe sur la marge droite (desktop + mobile). */}
-      <button
-        ref={buttonRef}
-        type="button"
-        onClick={() => setOpen((o) => !o)}
-        aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
-        aria-expanded={open}
-        aria-controls="nav-overlay"
-        className="group fixed right-0 top-1/2 z-40 -translate-y-1/2 -skew-x-12 border-y border-l border-accent/60 bg-accent px-3 py-6 transition-transform duration-200 hover:-translate-x-1 hover:-translate-y-1/2"
-      >
-        <span className="block skew-x-12 [writing-mode:vertical-rl] rotate-180 font-display text-sm font-black italic tracking-[0.3em] text-[#0a1a2b]">
-          {open ? "CLOSE" : "MENU"}
-        </span>
-      </button>
+      {/* Onglet MENU vertical fixe sur la marge droite (desktop + mobile).
+          Le wrapper `overflow-hidden` rogne la pointe du parallélogramme qui
+          dépasse à droite : l'onglet reste ainsi collé à la marge malgré le
+          skew, sans provoquer de scroll horizontal. */}
+      <div className="fixed right-0 top-1/2 z-40 -translate-y-1/2 overflow-hidden py-2 pl-3">
+        <button
+          ref={buttonRef}
+          type="button"
+          onClick={() => setOpen((o) => !o)}
+          aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
+          aria-expanded={open}
+          aria-controls="nav-overlay"
+          className="group block translate-x-8 -skew-x-12 border-y-2 border-l-2 border-accent/60 bg-accent py-12 pl-6 pr-12.5 transition-transform duration-200 hover:translate-x-7"
+        >
+          <span className="block skew-x-12 [writing-mode:vertical-rl] rotate-180 font-display text-3xl font-black italic tracking-[0.35em] text-[#0a1a2b]">
+            {open ? "CLOSE" : "MENU"}
+          </span>
+        </button>
+      </div>
 
       <AnimatePresence>
         {open && <MenuOverlay active={active} onClose={() => setOpen(false)} />}

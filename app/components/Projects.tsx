@@ -71,7 +71,7 @@ export default function Projects() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="projects" className="min-h-dvh px-6 py-24 md:pl-40 md:pr-72">
+    <section id="projects" className="min-h-dvh px-6 py-24 md:pl-40 md:pr-40">
       {/* En-tête : bandeau MES PROJETS + flèche */}
       <SectionTitle>Mes Projets</SectionTitle>
 

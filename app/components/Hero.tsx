@@ -44,7 +44,7 @@ export default function Hero() {
     <section
       id="home"
       onMouseMove={handleMouseMove}
-      className="relative flex min-h-dvh items-center overflow-hidden px-6 md:pl-40 md:pr-72"
+      className="relative flex min-h-dvh items-center overflow-hidden px-6 md:pl-40 md:pr-40"
     >
       {/* Carré décoratif en rotation (fond) */}
       <motion.div

@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
-import { Anybody, Geist, JetBrains_Mono } from "next/font/google";
+import { Anybody, Archivo, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-// Geist -> texte courant / UI (--font-sans)
-const geist = Geist({
-  variable: "--font-geist",
+// Archivo -> texte courant / UI (--font-sans). Grotesque serrée, de la même
+// famille de formes qu'Anybody : les paragraphes tiennent sous les gros titres
+// italiques sans jurer.
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
+  style: ["normal", "italic"],
 });
 
 // JetBrains Mono -> libellés "code" comme PORTFOLIO.INIT() (--font-mono)
@@ -35,7 +38,7 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${geist.variable} ${jetbrainsMono.variable} ${anybody.variable}`}
+      className={`${archivo.variable} ${jetbrainsMono.variable} ${anybody.variable}`}
     >
       <body className="min-h-dvh bg-background font-sans text-foreground antialiased">
         {children}

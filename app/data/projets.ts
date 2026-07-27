@@ -1,83 +1,70 @@
-// Source de vérité unique des projets : alimente la section Projects de la home
-// ET la page détail /projets/[slug]. Contenu placeholder repris des maquettes ;
-// remplace par tes vrais projets (les images vont dans public/projets/).
+// Source de vérité unique des projets : alimente la section Projets de la home
+// ET la page détail /projets/[slug]. Contenu à remplacer par tes vrais projets
+// (les images vont dans public/projets/<slug>/).
 
-export type ProjetMedia = {
-  label: string; // "CAM_01 // FRAME_772"
-  caption: string; // texte descriptif italique
-  image: string; // chemin dans public/projets/ (fallback panneau HUD si absent)
-  stats: { key: string; value: string }[]; // ex: { key: "LATENCY", value: "0.02ms" }
+export type ProjetVisuel = {
+  title: string; // intitulé court, affiché en mono cyan
+  caption: string; // une phrase de légende
+  image: string; // chemin dans public/projets/ ; panneau navy si absent
 };
 
-export type ProjetModule = { name: string; status: string }; // "THREE.JS" / "ACTIF"
-
 export type Projet = {
-  slug: string; // "the-core-engine"
-  codename: string; // "PROJECT ALPHA"
-  title: string; // "THE_CORE_ENGINE"
-  tags: string[]; // ["HTML", "CSS"]
-  summary: string; // description courte pour la liste de la home
-  heroBackground: string; // image de fond du hero (fallback dégradé si absent)
-  mission: { heading: string; body: string };
-  media: ProjetMedia[];
-  processing: { body: string; github?: string; demo?: string };
-  stack: { primaryCore: ProjetModule[]; renderEngine: ProjetModule[] };
-  specs: { timestamp: string; license: string; role: string; location: string };
+  // --- champs consommés aussi par la liste de la home ---
+  slug: string;
+  title: string;
+  tags: string[];
+  summary: string;
+  heroBackground?: string;
+  // --- champs propres à la page détail ---
+  about: string; // section « Le projet »
+  work: { body: string; points: string[] }; // section « Ce que j'ai fait »
+  visuals: ProjetVisuel[];
+  stack: string[];
+  info: { year: string; context: string; role: string };
+  links: { github?: string; demo?: string };
 };
 
 export const PROJECTS: Projet[] = [
   {
-    slug: "the-core-engine",
-    codename: "PROJECT ALPHA",
-    title: "THE_CORE_ENGINE",
-    tags: ["HTML", "CSS"],
+    slug: "portfolio",
+    title: "Portfolio",
+    tags: ["Next.js", "Tailwind"],
     summary:
-      "A high-performance HTML rendering engine built for Three Fiber. Immersive and sharp digital site.",
-    heroBackground: "/projets/the-core-engine/hero.png",
-    mission: {
-      heading:
-        "High-performance HTML rendering engine built for modern web ecosystems.",
-      body: "It leverages Three Fiber and cutting-edge WebGL implementations to deliver immersive, sharp digital experiences with sub-millisecond response times. Designed for developers who demand peak technical execution and visual precision.",
+      "Un site personnel pensé comme un menu de jeu vidéo, pour présenter mes projets sans passer par un modèle tout fait.",
+    heroBackground: "/projets/portfolio/hero.png",
+    about:
+      "Ce portfolio me sert à la fois de vitrine et de terrain d'expérimentation. Je voulais un site qui me ressemble plutôt qu'un thème repris tel quel : une mise en page asymétrique, de grands titres inclinés, et une navigation qui emprunte aux menus de jeux vidéo.",
+    work: {
+      body: "J'ai dessiné la maquette puis développé l'ensemble du site, de la structure des composants jusqu'au déploiement.",
+      points: [
+        "Une mise en page asymétrique : le contenu reste ancré à gauche, le vide à droite.",
+        "Des composants réutilisés d'une section à l'autre pour garder un rendu homogène.",
+        "Des apparitions discrètes au défilement, coupées si le visiteur réduit les animations.",
+      ],
     },
-    media: [
+    visuals: [
       {
-        label: "CAM_01 // FRAME_772",
+        title: "La page d'accueil",
         caption:
-          "Visualizing the core data stream interaction within the 3D viewport environment.",
-        image: "/projets/the-core-engine/cam-01.png",
-        stats: [
-          { key: "LATENCY", value: "0.02ms" },
-          { key: "FREQ", value: "60Hz" },
-        ],
+          "Le titre déborde du cadre et la barre latérale reste visible pendant tout le défilement.",
+        image: "/projets/portfolio/accueil.png",
       },
       {
-        label: "SYSTEM_ARCHITECTURE",
+        title: "La liste des projets",
         caption:
-          "Deep dive into the wireframe nodes that constitute the engine's logical layout.",
-        image: "/projets/the-core-engine/architecture.png",
-        stats: [{ key: "NODE_COUNT", value: "1,422_ACTIVE" }],
+          "Chaque ligne révèle un aperçu du projet au survol, qui glisse depuis la droite.",
+        image: "/projets/portfolio/projets.png",
       },
     ],
-    processing: {
-      body: "Every visual component is processed as a unique data stream for maximum fidelity.",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Motion"],
+    info: {
+      year: "2026",
+      context: "Projet personnel",
+      role: "Conception et développement",
+    },
+    links: {
       github: "https://github.com/",
       demo: "https://vercel.com/",
-    },
-    stack: {
-      primaryCore: [
-        { name: "HTML5", status: "READY" },
-        { name: "CSS3", status: "READY" },
-      ],
-      renderEngine: [
-        { name: "THREE.JS", status: "ACTIF" },
-        { name: "REACT", status: "READY" },
-      ],
-    },
-    specs: {
-      timestamp: "OCT_2023",
-      license: "OPEN_SOURCE",
-      role: "ARCHITECT",
-      location: "LOS_ANGELES",
     },
   },
 ];

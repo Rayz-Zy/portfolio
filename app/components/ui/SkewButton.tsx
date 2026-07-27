@@ -1,18 +1,20 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 
-// Bouton parallélogramme cyan + ombre décalée. Recette identique à VIEW DATA /
-// VOIR PLUS, extraite ici pour être partagée (home + page détail).
-export default function HudButton({
+// Bouton parallélogramme cyan + ombre décalée. Recette partagée par la home
+// (VOIR PLUS) et la page projet (retour, code, démo).
+export default function SkewButton({
   href,
   label,
   icon,
+  iconFirst = false,
   external = false,
   className = "",
 }: {
   href: string;
   label: string;
   icon?: ReactNode;
+  iconFirst?: boolean;
   external?: boolean;
   className?: string;
 }) {
@@ -25,8 +27,9 @@ export default function HudButton({
       />
       <span className="relative flex -skew-x-12 items-center bg-accent px-8 py-3.5 transition-transform duration-200 group-hover:translate-x-1 group-hover:translate-y-1">
         <span className="flex skew-x-12 items-center gap-2.5 font-display text-sm font-bold italic tracking-wider text-[#0a1a2b]">
+          {iconFirst && icon}
           {label}
-          {icon}
+          {!iconFirst && icon}
         </span>
       </span>
     </>

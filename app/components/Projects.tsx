@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion, type Variants } from "motion/react";
 import SectionTitle from "./SectionTitle";
-import HudButton from "./ui/HudButton";
+import SkewButton from "./ui/SkewButton";
 import { PROJECTS } from "../data/projets";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
@@ -76,7 +76,7 @@ export default function Projects() {
                 className="pointer-events-none absolute inset-x-16 top-1/2 z-0 hidden h-56 -translate-y-1/2 translate-x-8 bg-panel bg-cover bg-center opacity-0 transition-all duration-500 ease-out group-hover:translate-x-0 group-hover:opacity-100 lg:block"
               />
 
-              <HudButton
+              <SkewButton
                 href={`/projets/${p.slug}`}
                 label="VOIR PLUS"
                 className="z-10 mr-8"

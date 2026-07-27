@@ -81,9 +81,9 @@ export default function NavMenu() {
           aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
           aria-expanded={open}
           aria-controls="nav-overlay"
-          className="group block translate-x-8 -skew-x-12 border-y-2 border-l-2 border-accent/60 bg-accent py-12 pl-6 pr-12.5 transition-transform duration-200 hover:translate-x-7"
+          className="group block translate-x-8 -skew-x-12 border-y-2 border-l-2 border-accent/60 bg-accent py-9 pl-5 pr-11.5 transition-transform duration-200 hover:translate-x-7"
         >
-          <span className="block skew-x-12 [writing-mode:vertical-rl] rotate-180 font-display text-3xl font-black italic tracking-[0.35em] text-[#0a1a2b]">
+          <span className="block skew-x-12 [writing-mode:vertical-rl] rotate-180 font-display text-2xl font-black italic tracking-[0.3em] text-[#0a1a2b]">
             {open ? "CLOSE" : "MENU"}
           </span>
         </button>

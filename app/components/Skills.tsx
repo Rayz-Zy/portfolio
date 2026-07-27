@@ -77,7 +77,7 @@ export default function Skills() {
   const reduce = useReducedMotion();
 
   return (
-    <section id="skills" className="min-h-dvh px-6 py-24 md:pl-40 md:pr-72">
+    <section id="skills" className="min-h-dvh px-6 py-24 md:pl-40 md:pr-40">
       <SectionTitle>Compétences</SectionTitle>
 
       <motion.div

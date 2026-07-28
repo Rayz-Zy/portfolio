@@ -24,7 +24,7 @@
   --color-accent-soft: var(--accent-soft);
   --color-accent-hot: var(--accent-hot);
 
-  --font-sans: var(--font-geist);
+  --font-sans: var(--font-archivo);
   --font-mono: var(--font-jetbrains-mono);
   --font-display: var(--font-anybody);
 }

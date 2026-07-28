@@ -1,0 +1,31 @@
+// Bloc de texte d'une section projet : un paragraphe, et éventuellement une
+// courte liste de points clés. Sert deux fois : « Le projet » et « Ce que
+// j'ai fait ».
+export default function ProjetTexte({
+  body,
+  points,
+}: {
+  body: string;
+  points?: string[];
+}) {
+  return (
+    <div className="max-w-md">
+      <p className="font-sans text-lg leading-relaxed text-muted">{body}</p>
+
+      {points && points.length > 0 && (
+        <ul className="mt-8 flex flex-col gap-4">
+          {points.map((point) => (
+            <li
+              key={point}
+              className="flex gap-4 font-sans text-lg leading-relaxed text-muted"
+            >
+              {/* Tiret cyan en guise de puce : pas de cadre, pas d'icône. */}
+              <span aria-hidden className="mt-3.5 h-px w-6 shrink-0 bg-accent" />
+              {point}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}

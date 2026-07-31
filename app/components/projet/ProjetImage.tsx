@@ -1,15 +1,10 @@
 "use client";
 
-import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
+import ProjetCadre from "./ProjetCadre";
 import type { ProjetVisuel } from "../../data/projets";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
-
-// Deux dégradés combinés en "intersect" : les quatre bords de l'image se
-// fondent dans le fond. Même recette que l'aperçu au survol de la home.
-const MASQUE =
-  "linear-gradient(to right, transparent, #000 18%, #000 82%, transparent), linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent)";
 
 // Rangée autonome : un visuel et sa légende, sans texte de section. Sert aux
 // visuels au-delà des deux premiers, qui n'ont pas de bloc de texte associé.
@@ -24,34 +19,23 @@ export default function ProjetImage({
   const aDroite = index % 2 === 0;
 
   // Marge négative + largeur augmentée d'autant : sans la seconde, l'image
-  // glisse vers le bord et laisse un trou derrière elle.
-  // `alt` vide : la légende à côté porte déjà l'information.
+  // glisse vers le bord et laisse un trou derrière elle. 7rem contre un padding
+  // de section de 10rem : l'image déborde franchement de sa colonne mais garde
+  // 3rem de fond avant le bord de l'écran.
   const image = (
-    <div
-      style={{
-        maskImage: MASQUE,
-        maskComposite: "intersect",
-        WebkitMaskImage: MASQUE,
-        WebkitMaskComposite: "source-in",
-      }}
-      className={`relative aspect-video w-full bg-panel ${
+    <ProjetCadre
+      src={visuel.image}
+      sizes="(min-width: 768px) 60vw, 100vw"
+      className={
         aDroite
-          ? "md:-mr-40 md:w-[calc(100%+10rem)]"
-          : "md:-ml-40 md:w-[calc(100%+10rem)]"
-      }`}
-    >
-      <Image
-        src={visuel.image}
-        alt=""
-        fill
-        sizes="(min-width: 768px) 60vw, 100vw"
-        className="object-cover"
-      />
-    </div>
+          ? "md:-mr-28 md:w-[calc(100%+7rem)]"
+          : "md:-ml-28 md:w-[calc(100%+7rem)]"
+      }
+    />
   );
 
   const legende = (
-    <div className="max-w-xs">
+    <div className="max-w-lg">
       <p className="font-mono text-sm font-bold tracking-widest text-accent">
         {visuel.title}
       </p>

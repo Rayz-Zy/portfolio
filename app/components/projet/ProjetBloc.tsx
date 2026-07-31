@@ -1,17 +1,12 @@
 "use client";
 
-import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
 import SectionTitle from "../SectionTitle";
 import ProjetTexte from "./ProjetTexte";
+import ProjetCadre from "./ProjetCadre";
 import type { ProjetVisuel } from "../../data/projets";
 
 const EASE = [0.22, 1, 0.36, 1] as const;
-
-// Deux dégradés combinés en "intersect" : les quatre bords de l'image se
-// fondent dans le fond. Même recette que l'aperçu au survol de la home.
-const MASQUE =
-  "linear-gradient(to right, transparent, #000 18%, #000 82%, transparent), linear-gradient(to bottom, transparent, #000 12%, #000 88%, transparent)";
 
 // Une section de texte et le visuel qui l'illustre, côte à côte. Le visuel est
 // facultatif : sans lui le texte occupe toute la largeur.
@@ -42,36 +37,25 @@ export default function ProjetBloc({
   // L'image sort du cadre du côté où elle est posée : marge négative pour
   // décoller du bord de sa colonne, ET largeur augmentée d'autant — sans ça
   // elle se contente de glisser et laisse un trou derrière elle.
-  // `alt` vide : la légende juste en dessous porte déjà l'information, la
-  // répéter la ferait entendre deux fois à un lecteur d'écran.
+  // La marge négative reste 3rem en dessous du padding de la section (pr-24 /
+  // pl-40), pour que le débordement se lise sans que l'image touche le bord de
+  // l'écran — à droite elle passerait sous la pastille de nav, fixée là.
   const image = visuel ? (
     <figure className={imageADroite ? "m-0" : "m-0 md:order-1"}>
-      <div
-        style={{
-          maskImage: MASQUE,
-          maskComposite: "intersect",
-          WebkitMaskImage: MASQUE,
-          WebkitMaskComposite: "source-in",
-        }}
-        className={`relative aspect-video w-full bg-panel ${
+      <ProjetCadre
+        src={visuel.image}
+        sizes="(min-width: 768px) 55vw, 100vw"
+        className={
           imageADroite
-            ? "md:-mr-24 md:w-[calc(100%+6rem)]"
-            : "md:-ml-40 md:w-[calc(100%+10rem)]"
-        }`}
-      >
-        <Image
-          src={visuel.image}
-          alt=""
-          fill
-          sizes="(min-width: 768px) 55vw, 100vw"
-          className="object-cover"
-        />
-      </div>
+            ? "md:-mr-12 md:w-[calc(100%+3rem)]"
+            : "md:-ml-28 md:w-[calc(100%+7rem)]"
+        }
+      />
       <figcaption className="mt-6">
         <span className="block font-mono text-sm font-bold tracking-widest text-accent">
           {visuel.title}
         </span>
-        <p className="mt-3 max-w-xs font-sans text-base leading-relaxed text-muted">
+        <p className="mt-3 max-w-lg font-sans text-base leading-relaxed text-muted">
           {visuel.caption}
         </p>
       </figcaption>

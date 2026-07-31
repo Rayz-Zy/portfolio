@@ -19,20 +19,20 @@ type ContactLink = {
 const LINKS: ContactLink[] = [
   {
     label: "EMAIL",
-    value: "ton@email.com",
-    href: "mailto:ton@email.com",
+    value: "rayane.adjaoud@gmail.com",
+    href: "mailto:rayane.adjaoud@gmail.com",
     icon: FiMail,
   },
   {
     label: "LINKEDIN",
-    value: "linkedin.com/in/ton-profil",
-    href: "#",
+    value: "Rayane Adjaoud",
+    href: "https://www.linkedin.com/in/rayane-adjaoud-a7176b33a/",
     icon: FaLinkedin,
   },
   {
     label: "GITHUB",
-    value: "github.com/ton-profil",
-    href: "#",
+    value: "Rayz-Zy",
+    href: "https://github.com/Rayz-Zy",
     icon: SiGithub,
   },
 ];

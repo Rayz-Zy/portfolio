@@ -9,7 +9,7 @@ export default function ProjetTexte({
   points?: string[];
 }) {
   return (
-    <div className="max-w-md">
+    <div className="max-w-xl">
       <p className="font-sans text-lg leading-relaxed text-muted">{body}</p>
 
       {points && points.length > 0 && (
@@ -19,8 +19,12 @@ export default function ProjetTexte({
               key={point}
               className="flex gap-4 font-sans text-lg leading-relaxed text-muted"
             >
-              {/* Tiret cyan en guise de puce : pas de cadre, pas d'icône. */}
-              <span aria-hidden className="mt-3.5 h-px w-6 shrink-0 bg-accent" />
+              {/* Puce en parallélogramme cyan : reprend le -skew-x-12 des
+                  boutons et des bandeaux de section. */}
+              <span
+                aria-hidden
+                className="mt-2.5 h-3 w-3 shrink-0 -skew-x-12 bg-accent"
+              />
               {point}
             </li>
           ))}

@@ -180,7 +180,7 @@ export default function MenuOverlay({
 
         {/* Bouton Download CV, sous la liste. */}
         <a
-          href="/cv.pdf"
+          href="/CV_Adjaoud_Rayane.pdf"
           onClick={onClose}
           className="mt-12 -skew-x-12 border border-accent/70 px-9 py-3 text-base text-accent transition-colors hover:bg-accent hover:text-[#0a1a2b]"
         >

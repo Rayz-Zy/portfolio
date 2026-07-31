@@ -7,9 +7,13 @@ import {
   SiNextdotjs,
   SiAngular,
   SiTypescript,
-  SiRedux,
-  SiTailwindcss,
+  SiPhp,
+  SiSymfony,
+  SiMysql,
+  SiPrisma,
+  SiGit,
 } from "react-icons/si";
+import { TbApi } from "react-icons/tb";
 import SectionTitle from "./SectionTitle";
 
 // Données factices : remplace par tes vraies compétences.
@@ -48,16 +52,40 @@ const SKILLS: Skill[] = [
     icon: SiTypescript,
   },
   {
-    label: "STATE MANAGEMENT",
-    title: "REDUX",
-    description: "Predictable state containers for large front-end applications",
-    icon: SiRedux,
+    label: "LANGAGE",
+    title: "PHP",
+    description: "Server-side logic and business rules for web applications",
+    icon: SiPhp,
   },
   {
-    label: "STYLING",
-    title: "TAILWIND CSS",
-    description: "Rapid, consistent UI with a utility-first design system",
-    icon: SiTailwindcss,
+    label: "FRAMEWORK",
+    title: "SYMFONY",
+    description: "Structured back-end apps with MVC, services and Doctrine",
+    icon: SiSymfony,
+  },
+  {
+    label: "BASE DE DONNÉES",
+    title: "MYSQL",
+    description: "Relational modeling, queries and data integrity",
+    icon: SiMysql,
+  },
+  {
+    label: "ORM",
+    title: "PRISMA",
+    description: "Typed database access, schema modeling and migrations",
+    icon: SiPrisma,
+  },
+  {
+    label: "VERSIONING",
+    title: "GIT / GITHUB",
+    description: "Branching, pull requests and collaborative workflows",
+    icon: SiGit,
+  },
+  {
+    label: "ARCHITECTURE",
+    title: "REST / API",
+    description: "Designing and consuming REST endpoints between front and back",
+    icon: TbApi,
   },
 ];
 
@@ -85,7 +113,7 @@ export default function Skills() {
         initial={reduce ? false : "hidden"}
         whileInView={reduce ? undefined : "show"}
         viewport={{ once: true, amount: 0.2 }}
-        className="mt-16 grid grid-cols-1 gap-x-10 gap-y-14 lg:grid-cols-2 xl:grid-cols-3"
+        className="mt-16 grid grid-cols-1 gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
       >
         {SKILLS.map((s, i) => {
           const Icon = s.icon;

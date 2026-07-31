@@ -102,7 +102,7 @@ export default function Hero() {
 
           {/* Bouton VIEW DATA avec son ombre décalée */}
           <motion.div variants={item} className="mt-12">
-            <a href="#projects" className="group relative inline-block">
+            <a href="#about" className="group relative inline-block">
               {/* Ombre décalée fixe derrière le bouton */}
               <span
                 aria-hidden
@@ -112,7 +112,7 @@ export default function Hero() {
               {/* Corps du bouton : glisse vers l'ombre au survol */}
               <span className="relative block -skew-x-12 bg-accent px-8 py-4 transition-transform duration-200 group-hover:translate-x-1 group-hover:translate-y-1">
                 <span className="block skew-x-12 font-display font-bold italic tracking-wide text-[#0a1a2b]">
-                  VIEW DATA
+                  VOIR PLUS
                 </span>
               </span>
             </a>

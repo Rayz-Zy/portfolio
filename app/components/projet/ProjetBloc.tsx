@@ -78,11 +78,13 @@ export default function ProjetBloc({
     </figure>
   ) : null;
 
+  // La colonne de texte prend la part la plus large des deux, quel que soit le
+  // côté où elle tombe : c'est elle qui porte le contenu, l'image l'illustre.
   const colonnes = !visuel
     ? ""
     : imageADroite
-      ? "md:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]"
-      : "md:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)]";
+      ? "md:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)]"
+      : "md:grid-cols-[minmax(0,1fr)_minmax(0,1.15fr)]";
 
   return (
     <motion.section
@@ -90,7 +92,7 @@ export default function ProjetBloc({
       whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, ease: EASE }}
-      className={`grid grid-cols-1 items-center gap-14 overflow-hidden px-6 py-20 md:gap-16 md:pl-40 md:pr-24 ${colonnes}`}
+      className={`grid grid-cols-1 items-start gap-14 overflow-hidden px-6 py-20 md:gap-16 md:pl-40 md:pr-24 ${colonnes}`}
     >
       {texte}
       {image}

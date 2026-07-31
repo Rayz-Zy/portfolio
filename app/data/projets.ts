@@ -26,20 +26,20 @@ export type Projet = {
 
 export const PROJECTS: Projet[] = [
   {
-    slug: "portfolio",
-    title: "Portfolio",
-    tags: ["Next.js", "Tailwind"],
+    slug: "application-saas-btp",
+    title: "Application Saas BTP",
+    tags: ["Next.js", "Prisma", "PostgreSQL", "TypeScript", "Tailwind"],
     summary:
-      "Un site personnel pensé comme un menu de jeu vidéo, pour présenter mes projets sans passer par un modèle tout fait.",
+      "Plateforme SaaS de gestion d'apports d'affaires & conformité fiscale",
     heroBackground: "/projets/portfolio/hero.png",
     about:
-      "Ce portfolio me sert à la fois de vitrine et de terrain d'expérimentation. Je voulais un site qui me ressemble plutôt qu'un thème repris tel quel : une mise en page asymétrique, de grands titres inclinés, et une navigation qui emprunte aux menus de jeux vidéo.",
+      "Dans le cadre de mon stage chez Stack48, j'ai développé une application SaaS sur mesure pour une entreprise du secteur du BTP. L'objectif était de répondre à une problématique juridique et fiscale majeure : la gestion et la déclaration des commissions d'apporteurs d'affaires. Sans traçabilité ni facturation officielle, ces flux financiers exposent les entreprises et leurs partenaires à de lourds risques de redressement ou de soupçons de blanchiment d'argent.",
     work: {
-      body: "J'ai dessiné la maquette puis développé l'ensemble du site, de la structure des composants jusqu'au déploiement.",
+      body: "Avec mes collègues, j'ai conçu et développé l'application, en mettant l'accent sur l'expérience utilisateur pour une interface simple et intuitive.",
       points: [
-        "Une mise en page asymétrique : le contenu reste ancré à gauche, le vide à droite.",
-        "Des composants réutilisés d'une section à l'autre pour garder un rendu homogène.",
-        "Des apparitions discrètes au défilement, coupées si le visiteur réduit les animations.",
+        "Conception du design et de l'expérience utilisateur.",
+        "Modélisation & Architecture : Conception de la structure de données relationnelle et des schémas pour gérer les rôles, les transactions et le suivi des recommandations.",
+        "Développement du backend avec gestion des utilisateurs, des rôles et des transactions.",
       ],
     },
     visuals: [
@@ -56,15 +56,57 @@ export const PROJECTS: Projet[] = [
         image: "/projets/portfolio/projets.png",
       },
     ],
-    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Motion"],
+    stack: ["Next.js", "Prisma", "PostgreSQL", "TypeScript", "Tailwind"],
     info: {
       year: "2026",
-      context: "Projet personnel",
+      context: "Projet de Stage",
       role: "Conception et développement",
     },
     links: {
       github: "https://github.com/",
       demo: "https://vercel.com/",
+    },
+  },
+  // Contenu d'exemple, à remplacer par un vrai projet.
+  {
+    slug: "reservation",
+    title: "Réservation",
+    tags: ["React", "PostgreSQL"],
+    summary:
+      "Une application de réservation de salles pour une association, pensée pour être utilisable depuis un téléphone en quelques secondes.",
+    heroBackground: "/projets/reservation/hero.png",
+    about:
+      "L'association gérait ses créneaux dans un tableur partagé, ce qui provoquait régulièrement des doubles réservations. J'ai repris le besoin depuis le début : qui réserve, quand, et comment on empêche deux personnes de prendre le même créneau.",
+    work: {
+      body: "J'ai conçu le modèle de données puis développé l'application, de l'interface jusqu'aux règles métier côté serveur.",
+      points: [
+        "Un schéma de base de données qui rend le double créneau impossible, plutôt que de le rattraper dans l'interface.",
+        "Un calendrier hebdomadaire lisible sur mobile, où réserver tient en deux gestes.",
+        "Un espace d'administration pour ouvrir, fermer ou bloquer des créneaux.",
+      ],
+    },
+    visuals: [
+      {
+        title: "Le calendrier",
+        caption:
+          "La semaine tient sur un écran de téléphone, les créneaux pris sont grisés d'emblée.",
+        image: "/projets/reservation/calendrier.png",
+      },
+      {
+        title: "L'administration",
+        caption:
+          "Le responsable ouvre ou ferme des créneaux sans passer par le développeur.",
+        image: "/projets/reservation/admin.png",
+      },
+    ],
+    stack: ["React", "Node.js", "PostgreSQL", "Prisma"],
+    info: {
+      year: "2025",
+      context: "Projet universitaire",
+      role: "Conception et développement",
+    },
+    links: {
+      github: "https://github.com/",
     },
   },
 ];

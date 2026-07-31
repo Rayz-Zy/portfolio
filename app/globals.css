@@ -6,7 +6,7 @@
   --foreground: #e8edf5;
   --muted: #8a94a6;
   --surface: #0f1524; /* fond de la sidebar */
-  --panel: #16233f; /* bandeau navy sous le titre */
+  --panel: #16233f; /* fond des cartes / blocs média */
   --accent: #22aee6; /* cyan du bouton / pill */
   --accent-soft: #8fd6f4; /* haut du dégradé de la pill active */
   --accent-hot: #ff3d5a; /* rouge/rose de l'item de nav actif (façon SKILL) */

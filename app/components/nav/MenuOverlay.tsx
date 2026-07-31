@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import { motion, useReducedMotion, type Variants } from "motion/react";
 import { NAV } from "./nav-items";
 
@@ -40,7 +40,6 @@ export default function MenuOverlay({
 }) {
   const reduce = useReducedMotion();
   const firstLinkRef = useRef<HTMLAnchorElement>(null);
-  const [imgOk, setImgOk] = useState(true);
 
   // Focus le premier lien à l'ouverture (accessibilité clavier).
   useEffect(() => {
@@ -68,39 +67,16 @@ export default function MenuOverlay({
         className="pointer-events-none absolute inset-0 bg-linear-to-br from-panel/50 via-background to-background"
       />
 
-      {/* ---- Zone gauche : portrait qui déborde (fallback = nom géant). ---- */}
+      {/* ---- Zone gauche : nom géant incliné qui déborde. ---- */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-y-0 left-0 w-[60%] overflow-hidden md:w-[46%]"
       >
-        {imgOk ? (
-          <>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/portrait.png"
-              alt=""
-              onError={() => setImgOk(false)}
-              className="h-full w-full scale-110 object-cover object-top opacity-80 filter-[grayscale(0.35)_contrast(1.05)]"
-              style={{
-                maskImage:
-                  "linear-gradient(to right, #000 55%, transparent), linear-gradient(to bottom, transparent, #000 12%, #000 85%, transparent)",
-                WebkitMaskImage:
-                  "linear-gradient(to right, #000 55%, transparent), linear-gradient(to bottom, transparent, #000 12%, #000 85%, transparent)",
-                maskComposite: "intersect",
-                WebkitMaskComposite: "source-in",
-              }}
-            />
-            {/* Teinte cyan par-dessus le portrait. */}
-            <div className="absolute inset-0 bg-accent/25 mix-blend-color" />
-          </>
-        ) : (
-          // Fallback : nom géant incliné qui déborde à gauche.
-          <p className="absolute left-2 top-1/2 -translate-y-1/2 -skew-x-6 font-display text-[clamp(3rem,13vw,9rem)] font-black italic leading-[0.82] tracking-tight text-foreground/8">
-            RAYANE
-            <br />
-            ADJAOUD
-          </p>
-        )}
+        <p className="absolute left-2 top-1/2 -translate-y-1/2 -skew-x-6 font-display text-[clamp(3rem,13vw,9rem)] font-black italic leading-[0.82] tracking-tight text-foreground/8">
+          RAYANE
+          <br />
+          ADJAOUD
+        </p>
       </div>
 
       {/* ---- Panneau info haut-gauche (façon « current wallet »). ---- */}

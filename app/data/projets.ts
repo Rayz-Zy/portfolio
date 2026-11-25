@@ -102,15 +102,15 @@ export const PROJECTS: Projet[] = [
         image: "/projets/sushi-app/accueil.png",
       },
       {
-        title: "Le Panier",
+        title: "Commande de Sushi",
         caption:
-          "Le panier de commandes de l'application, où les utilisateurs peuvent ajouter et gérer leurs produits.",
-        image: "/projets/sushi-app/panier.png",
+          "Donne toutes les informations sur le produit commandé.",
+        image: "/projets/sushi-app/commande.png",
       },
       {
-        title: "Le Tableau de bord",
+        title: "Le Panier",
         caption:
-          "L'apporteur retrouve ses commissions du mois, ses opportunités en attente et ses affaires en cours sur un seul écran.",
+          "Le panier de l'application, où l'utilisateur peut voir les produits qu'il a ajoutés et passer à la caisse.",
         image: "/projets/sushi-app/panier.png",
       },
     ],
